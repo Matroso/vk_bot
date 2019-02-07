@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 app.get('/', ( req, res ) => res.send('Hello World!'));
 app.post('/', ( req, res ) =>  {
     const {body} = req;
+    //console.log(JSON.stringify(body));
     switch (body.type) {
         case 'confirmation':
             res.end(CONFIRMATION);

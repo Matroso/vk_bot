@@ -1,13 +1,16 @@
 const _ = require('lodash');
-
+const sU = require('./sexUser');
 const send = require('./send');
 
-let waitUserId = null;
+let waitUserIdMen = null;
+let waitUserIdWomen = null;
+let waitUserId= null;
 const couples = [];
 
 module.exports = async({user_id: userId, body: text, payload}) => {
     console.log('userId = ' + userId);
     console.log('waitUserId = ' + waitUserId);
+    await sU(userId, 'sex',1);
     userId = +userId;
     const index = _.findIndex(couples, arr => _.indexOf(arr, userId) !== -1 );
     if (index === -1){
